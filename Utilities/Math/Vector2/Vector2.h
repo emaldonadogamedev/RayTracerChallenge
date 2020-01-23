@@ -19,12 +19,14 @@ namespace RayTracer
 				float LengthSquared() const;
 				Vector2 Normalized() const;
 				void Normalize();
+				void Zero();
 
 				friend Vector2 operator+(const Vector2& lhs, const Vector2& rhs);
 				friend Vector2 operator+(const Vector2& lhs, const float rhs);
 
 				friend Vector2 operator-(const Vector2& lhs, const Vector2& rhs);
 				friend Vector2 operator-(const Vector2& lhs, const float rhs);
+				Vector2 operator-()const;
 
 				friend Vector2 operator*(const Vector2& lhs, const Vector2& rhs);
 				friend Vector2 operator*(const Vector2& lhs, const float rhs);
