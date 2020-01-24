@@ -31,7 +31,7 @@ namespace RayTracer
 
 				const vector<Color>& operator[](int row) const;
 
-				static const unsigned int s_MAX_DIMENSION_SIZE = 8192U;
+				static const unsigned int s_MAX_DIMENSION_SIZE;
 
 			private:
 				ColorBuffer m_colorData;

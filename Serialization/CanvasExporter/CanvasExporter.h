@@ -14,6 +14,7 @@ namespace RayTracer
 				static void ExportToPPMimage(const Canvas& canvas, const std::string& filename);
 
 			private:
+				static const std::string s_PPM_EXTENSION;
 				static const std::string s_EXPORT_DIR;
 		};
 	}

@@ -1,7 +1,6 @@
-#include "../../Utilities/precompiled/precompiled.h"
+#include <Utilities/precompiled/precompiled.h>
 
 #include "CanvasExporter.h"
-
 #include "../Canvas/Canvas.h"
 
 using namespace RayTracer::Serialization;
@@ -12,7 +11,7 @@ void CanvasExporter::ExportToPPMimage(const Canvas& canvas, const std::string& f
 {
 	ofstream ppmFile;
 	
-	ppmFile.open(s_EXPORT_DIR + filename);
+	ppmFile.open(s_EXPORT_DIR + filename + s_PPM_EXTENSION);
 
 	if (ppmFile.is_open())
 	{
@@ -28,13 +27,14 @@ void CanvasExporter::ExportToPPMimage(const Canvas& canvas, const std::string& f
 			{
 				ppmFile << color.r << ' ' << color.g << ' ' << color.b << "  ";
 			}
-		}
 
-		//Last end-line character
-		ppmFile << '\n';
+			//end line for new row
+			ppmFile << '\n';
+		}
 
 		ppmFile.close();
 	}
 }
 
 const std::string CanvasExporter::s_EXPORT_DIR = "OutputImages/";
+const std::string RayTracer::Serialization::CanvasExporter::s_PPM_EXTENSION = ".ppm";

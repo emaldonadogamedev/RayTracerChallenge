@@ -1,13 +1,15 @@
 #include "Utilities/precompiled/precompiled.h"
-#include "Utilities/Math/Vector3/Vector3.h"
 
-using namespace RayTracer::Math;
+#include "Serialization/CanvasExporter/CanvasExporter.h"
+#include "Serialization/Canvas/Canvas.h"
+
+using namespace RayTracer::Serialization;
 
 int main(int argc, char** argv)
 {
-	Vector3 vec(89.f, 12.f);
+	Canvas can(512, 512);
 
-	std::cout << Vector3(-87.f, -11.f) * vec;
+	CanvasExporter::ExportToPPMimage(can, "test");
 
 	return 0;
 }
