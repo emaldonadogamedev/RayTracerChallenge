@@ -36,6 +36,9 @@
     <ClCompile Include="Serialization\CanvasExporter\CanvasExporter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Utilities\Math\SquareMatrix\SquareMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities\Math\Vector2\Vector2.h">
@@ -65,7 +68,7 @@
     <ClInclude Include="Utilities\Math\Matrix2x2\Matrix2x2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utilities\Math\ISquareMatrix.h">
+    <ClInclude Include="Utilities\Math\SquareMatrix\SquareMatrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
