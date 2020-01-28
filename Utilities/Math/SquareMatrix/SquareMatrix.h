@@ -14,21 +14,18 @@ namespace RayTracer
 			SquareMatrix(const unsigned int dimension);
 			~SquareMatrix();
 
-			virtual float Determinant() const;
-
-			void  SubMatrix(SquareMatrix& result, unsigned int rowExclude, unsigned int colExclude);
+			float Determinant() const;
+			SquareMatrix  SubMatrix(unsigned int rowExclude, unsigned int colExclude) const;
+			unsigned int GetMatrixDimension() const;
+			SquareMatrix GetTranspose() const;
+			SquareMatrix GetInverse() const;
 
 			void SetElement(int row, int col, float value);
 
-			unsigned int GetMatrixDimension() const;
-
-			SquareMatrix GetTranspose() const;
-
 			friend SquareMatrix operator*(const SquareMatrix& lhs, const SquareMatrix& rhs);
-
 			virtual const std::vector<float>& operator[](int index) const;
-
 			virtual SquareMatrix& operator=(const SquareMatrix& rhs);
+
 
 			static SquareMatrix GetIdentity(const unsigned int dimension);
 
@@ -37,6 +34,9 @@ namespace RayTracer
 			static const SquareMatrix Identity4x4;
 
 		protected:
+			float Minor(int row, int col) const;
+			float CoFactor(int row, int col) const;
+
 			const unsigned int m_dimension;
 			std::vector<std::vector<float>> m_data;
 		};

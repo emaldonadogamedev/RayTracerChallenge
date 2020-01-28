@@ -20,12 +20,48 @@ RayTracer::Math::SquareMatrix::~SquareMatrix()
 
 float RayTracer::Math::SquareMatrix::Determinant() const
 {
-	return 0.f;
+	float result = 0.f;
+	if (m_dimension == 2)
+	{
+		result = (m_data[0][0]*m_data[1][1]) - (m_data[0][1]*m_data[1][0]);
+	}
+	else
+	{
+		for (int c = 0; c < m_dimension; ++c)
+		{
+			result += m_data[0][c] * CoFactor(0, c);
+		}
+	}
+	return result;
 }
 
-void RayTracer::Math::SquareMatrix::SubMatrix(SquareMatrix& result, unsigned int rowExclude, unsigned int colExclude)
+SquareMatrix RayTracer::Math::SquareMatrix::SubMatrix(unsigned int rowExclude, unsigned int colExclude) const
 {
+	SquareMatrix result(m_dimension - 1);
 
+	int currRow = 0, currCol;
+
+	for (int row = 0; row < m_dimension; ++row)
+	{
+		if (row != rowExclude)
+		{
+			currCol = 0;
+
+			for (int col = 0; col < m_dimension; ++col)
+			{
+				if (col != colExclude)
+				{
+					result.m_data[currRow][currCol] = m_data[row][col];
+
+					++currCol;
+				}
+			}
+
+			++currRow;
+		}
+	}
+
+	return result;
 }
 
 void RayTracer::Math::SquareMatrix::SetElement(int row, int col, float value)
@@ -47,6 +83,26 @@ SquareMatrix RayTracer::Math::SquareMatrix::GetTranspose() const
 		for (unsigned int j = 0; j < m_dimension; ++j)
 		{
 			result.SetElement(i, j, m_data[j][i]);
+		}
+	}
+
+	return result;
+}
+
+SquareMatrix RayTracer::Math::SquareMatrix::GetInverse() const
+{
+	SquareMatrix result(m_dimension);
+
+	const float determinant = Determinant();
+	if (std::abs(determinant) > MY_EPSILON)
+	{
+		for (int row = 0; row < m_dimension; row++)
+		{
+			for (int col = 0; col < m_dimension; col++)
+			{
+				float c = CoFactor(row, col);
+				result.m_data[col][row] = c / determinant;
+			}
 		}
 	}
 
@@ -112,6 +168,16 @@ SquareMatrix RayTracer::Math::SquareMatrix::GetIdentity(const unsigned int dimen
 	}
 
 	return result;
+}
+
+float RayTracer::Math::SquareMatrix::Minor(int row, int col) const
+{
+	return SubMatrix(row, col).Determinant();
+}
+
+float RayTracer::Math::SquareMatrix::CoFactor(int row, int col) const
+{
+	return Minor(row, col) * (((row + col) % 2) == 0 ? 1.f : -1.f);
 }
 
 const SquareMatrix RayTracer::Math::SquareMatrix::Identity2x2 = GetIdentity(2);
