@@ -9,7 +9,7 @@ namespace RayTracer
 		class Ray
 		{
 			public:
-				Ray(Vector3 origin, Vector3 direction)
+				Ray(const Vector3& origin, const Vector3& direction)
 					:m_origin(origin)
 					,m_direction(direction)
 				{
@@ -24,8 +24,8 @@ namespace RayTracer
 				}
 
 			protected:
-				Vector3 m_origin;
-				Vector3 m_direction;
+				const Vector3 m_origin;
+				const Vector3 m_direction;
 		};
 	}
 }

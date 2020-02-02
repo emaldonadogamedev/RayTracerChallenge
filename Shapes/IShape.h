@@ -1,8 +1,10 @@
 #pragma once
 
-#include "../Utilities/Math/Vector4/Vector4.h"
+#include "../Utilities/Math/Vector3/Vector3.h"
 
-using RayTracer::Math::Vector4;
+using RayTracer::Math::Vector3;
+
+class RayTracer::Math::Ray;
 
 namespace RayTracer
 {
@@ -10,8 +12,11 @@ namespace RayTracer
 	{
 		class IShape
 		{
+			public:
+				virtual bool Intersects(const Ray& ray) const = 0;
+
 			protected:
-				Vector4 m_position;
+				Vector3 m_position;
 		};
 	}
 }
