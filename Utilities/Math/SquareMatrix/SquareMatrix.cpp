@@ -180,6 +180,17 @@ float RayTracer::Math::SquareMatrix::CoFactor(int row, int col) const
 	return Minor(row, col) * (((row + col) % 2) == 0 ? 1.f : -1.f);
 }
 
+void RayTracer::Math::SquareMatrix::MakeIdentity()
+{
+	for (unsigned int i = 0; i < m_dimension; ++i)
+	{
+		for (unsigned int j = 0; j < m_dimension; ++j)
+		{
+			m_data[i][j] = i == j ? 1.f : 0.f;
+		}
+	}
+}
+
 const SquareMatrix RayTracer::Math::SquareMatrix::Identity2x2 = GetIdentity(2);
 const SquareMatrix RayTracer::Math::SquareMatrix::Identity3x3 = GetIdentity(3);
 const SquareMatrix RayTracer::Math::SquareMatrix::Identity4x4 = GetIdentity(4);

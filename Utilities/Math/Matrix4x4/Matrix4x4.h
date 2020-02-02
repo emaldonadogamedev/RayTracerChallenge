@@ -17,10 +17,17 @@ namespace RayTracer
 				void SetToScaleMatrix(float xScal, float yScal, float zScal);
 
 				static Matrix4x4 GetTranslationMatrix(float xPos, float yPos, float zPos);
-				static Matrix4x4 GetRotationMatrix(float xRot, float yRot, float zRot);
-				static Matrix4x4 GetScaleMatrix(float xRot, float yRot, float zRot);
+
+				static Matrix4x4 GetRotationMatrix_X(float xRot);
+				static Matrix4x4 GetRotationMatrix_Y(float yRot);
+				static Matrix4x4 GetRotationMatrix_Z(float zRot);
+
+				static Matrix4x4 GetScaleMatrix(float xScale, float yScale, float zScale);
+
+				static Matrix4x4 GetShearingMatrix();
 
 				virtual Matrix4x4& operator=(const Matrix4x4& rhs);
+				virtual Matrix4x4& operator=(const SquareMatrix& rhs);
 		};
 	}
 }

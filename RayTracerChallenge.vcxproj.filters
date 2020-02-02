@@ -71,5 +71,8 @@
     <ClInclude Include="Utilities\Math\Matrix4x4\Matrix4x4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Utilities\Math\Ray\Ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

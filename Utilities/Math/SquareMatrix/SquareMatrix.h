@@ -36,6 +36,7 @@ namespace RayTracer
 		protected:
 			float Minor(int row, int col) const;
 			float CoFactor(int row, int col) const;
+			void MakeIdentity();
 
 			const unsigned int m_dimension;
 			std::vector<std::vector<float>> m_data;
