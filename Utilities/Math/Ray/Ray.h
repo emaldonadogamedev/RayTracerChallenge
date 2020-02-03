@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Utilities/Math/Vector3/Vector3.h>
+#include "../../Utilities/Math/Vector3/Vector3.h"
 
 namespace RayTracer
 {
@@ -23,7 +23,6 @@ namespace RayTracer
 					return m_origin + (m_direction * t);
 				}
 
-			protected:
 				const Vector3 m_origin;
 				const Vector3 m_direction;
 		};

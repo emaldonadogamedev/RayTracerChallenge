@@ -42,7 +42,7 @@ float RayTracer::Math::Vector3::Length() const
 
 float RayTracer::Math::Vector3::LengthSquared() const
 {
-	return (x * x) + (y * y) + (z*z);
+	return (x * x) + (y * y) + (z * z);
 }
 
 Vector3 RayTracer::Math::Vector3::Normalized() const
