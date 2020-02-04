@@ -2,16 +2,13 @@
 
 namespace RayTracer
 {
-	namespace Shapes {
-		class IShape;
-	}
-
-	namespace Math
+	namespace Shapes
 	{
+		class IShape;
 		class IntersectionData
 		{
 			public:
-				IntersectionData(const Shapes::IShape* shapeIntersected, const float tClose = 0.f, const float tExtra = 0.f)
+				IntersectionData(const IShape* shapeIntersected, const float tClose = 0.f, const float tExtra = 0.f)
 					:m_shapeIntersected(shapeIntersected)
 					,m_tValue(tClose)
 					, m_tExtra(tExtra)
@@ -24,10 +21,10 @@ namespace RayTracer
 
 				bool DidIntersect() const 
 				{
-					m_shapeIntersected != nullptr;
+					return m_shapeIntersected != nullptr;
 				}
 
-				const Shapes::IShape* m_shapeIntersected;
+				const IShape* m_shapeIntersected;
 				float m_tValue;
 				float m_tExtra;
 		};

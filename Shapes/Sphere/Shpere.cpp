@@ -1,7 +1,7 @@
 #include <Utilities/precompiled/precompiled.h>
 
 #include "Shpere.h"
-#include "../../Utilities/Math/Ray/IntersectionData.h"
+#include "../../Shapes/IntersectionData.h"
 #include "../../Utilities/Math/Ray/Ray.h"
 
 using namespace RayTracer::Math;

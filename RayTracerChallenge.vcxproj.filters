@@ -45,6 +45,9 @@
     <ClCompile Include="Shapes\Sphere\Shpere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Utilities\Math\Ray\Ray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities\Math\Vector2\Vector2.h">
@@ -77,10 +80,10 @@
     <ClInclude Include="Utilities\Math\Ray\Ray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utilities\Math\Ray\IntersectionData.h">
+    <ClInclude Include="Shapes\Sphere\Shpere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Shapes\Sphere\Shpere.h">
+    <ClInclude Include="Shapes\IntersectionData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -27,7 +27,7 @@ float RayTracer::Math::SquareMatrix::Determinant() const
 	}
 	else
 	{
-		for (int c = 0; c < m_dimension; ++c)
+		for (unsigned int c = 0; c < m_dimension; ++c)
 		{
 			result += m_data[0][c] * CoFactor(0, c);
 		}
@@ -41,13 +41,13 @@ SquareMatrix RayTracer::Math::SquareMatrix::SubMatrix(unsigned int rowExclude, u
 
 	int currRow = 0, currCol;
 
-	for (int row = 0; row < m_dimension; ++row)
+	for (unsigned int row = 0; row < m_dimension; ++row)
 	{
 		if (row != rowExclude)
 		{
 			currCol = 0;
 
-			for (int col = 0; col < m_dimension; ++col)
+			for (unsigned int col = 0; col < m_dimension; ++col)
 			{
 				if (col != colExclude)
 				{
@@ -96,9 +96,9 @@ SquareMatrix RayTracer::Math::SquareMatrix::GetInverse() const
 	const float determinant = Determinant();
 	if (std::abs(determinant) > MY_EPSILON)
 	{
-		for (int row = 0; row < m_dimension; row++)
+		for (unsigned int row = 0; row < m_dimension; row++)
 		{
-			for (int col = 0; col < m_dimension; col++)
+			for (unsigned int col = 0; col < m_dimension; col++)
 			{
 				float c = CoFactor(row, col);
 				result.m_data[col][row] = c / determinant;

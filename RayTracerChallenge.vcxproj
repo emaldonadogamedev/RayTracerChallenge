@@ -155,6 +155,7 @@
     <ClCompile Include="Serialization\Canvas\Canvas.cpp" />
     <ClCompile Include="Shapes\Sphere\Shpere.cpp" />
     <ClCompile Include="Utilities\Math\Matrix4x4\Matrix4x4.cpp" />
+    <ClCompile Include="Utilities\Math\Ray\Ray.cpp" />
     <ClCompile Include="Utilities\Math\SquareMatrix\SquareMatrix.cpp" />
     <ClCompile Include="Utilities\Math\Vector2\Vector2.cpp" />
     <ClCompile Include="Utilities\Math\Vector3\Vector3.cpp" />
@@ -175,7 +176,7 @@
     <ClInclude Include="Serialization\Canvas\Canvas.h" />
     <ClInclude Include="Shapes\IShape.h" />
     <ClInclude Include="Shapes\Sphere\Shpere.h" />
-    <ClInclude Include="Utilities\Math\Ray\IntersectionData.h" />
+    <ClInclude Include="Shapes\IntersectionData.h" />
     <ClInclude Include="Utilities\Math\Ray\Ray.h" />
     <ClInclude Include="Utilities\Math\SquareMatrix\SquareMatrix.h" />
     <ClInclude Include="Utilities\Math\Matrix4x4\Matrix4x4.h" />

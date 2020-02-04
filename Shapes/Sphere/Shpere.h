@@ -12,7 +12,7 @@ namespace RayTracer
 				Shpere();
 				~Shpere();
 
-				virtual bool Intersects(const Math::Ray& ray, Math::IntersectionData& intersectionData) const override;
+				virtual bool Intersects(const Math::Ray& ray, IntersectionData& intersectionData) const override;
 		};
 	}	
 }
