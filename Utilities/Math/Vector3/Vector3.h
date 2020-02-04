@@ -38,9 +38,11 @@ namespace RayTracer
 
 			friend ostream& operator<<(std::ostream& output, const Vector3& value);
 
-			float x;
-			float y;
-			float z;
+			union
+			{
+				float m_data[3];
+				float x, y, z;
+			};
 
 			static const Vector3 X_POS;
 			static const Vector3 Y_POS;

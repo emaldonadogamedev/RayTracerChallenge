@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../SquareMatrix/SquareMatrix.h"
+#include "../../../Utilities/Math/Vector4/Vector4.h"
 
 namespace RayTracer
 {
@@ -28,6 +29,7 @@ namespace RayTracer
 
 				virtual Matrix4x4& operator=(const Matrix4x4& rhs);
 				virtual Matrix4x4& operator=(const SquareMatrix& rhs);
+				friend Vector4 operator*(const Matrix4x4& lhs, const Vector4& rhs);
 		};
 	}
 }

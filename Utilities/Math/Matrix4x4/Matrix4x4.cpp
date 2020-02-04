@@ -143,3 +143,18 @@ Matrix4x4& RayTracer::Math::Matrix4x4::operator=(const Matrix4x4& rhs)
 
 	return *this;
 }
+
+Vector4 RayTracer::Math::operator*(const Matrix4x4& lhs, const Vector4& rhs)
+{
+	Vector4 result;
+
+	for (int r = 0; r < 4; ++r)
+	{
+		for (int c = 0; c < 4; ++c)
+		{
+			result.m_data[r] +=  lhs.m_data[r][c] * rhs.m_data[c];
+		}
+	}
+
+	return result;
+}
