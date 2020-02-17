@@ -11,6 +11,7 @@ namespace RayTracer
 		{
 			public:
 				Matrix4x4();
+				Matrix4x4(const SquareMatrix& sqrMtx);
 				~Matrix4x4();
 
 				void SetToTranslationMatrix(float xPos, float yPos, float zPos);
@@ -29,6 +30,7 @@ namespace RayTracer
 
 				virtual Matrix4x4& operator=(const Matrix4x4& rhs);
 				virtual Matrix4x4& operator=(const SquareMatrix& rhs);
+				friend Matrix4x4 operator*(const Matrix4x4& lhs, const Matrix4x4& rhs);
 				friend Vector4 operator*(const Matrix4x4& lhs, const Vector4& rhs);
 		};
 	}

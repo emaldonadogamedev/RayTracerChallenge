@@ -13,6 +13,12 @@ RayTracer::Math::SquareMatrix::SquareMatrix(const unsigned int dimension) :m_dim
 	}
 }
 
+RayTracer::Math::SquareMatrix::SquareMatrix(const SquareMatrix& sqrMtx)
+	:m_dimension(sqrMtx.m_dimension)
+{
+	CopyValues(sqrMtx);
+}
+
 RayTracer::Math::SquareMatrix::~SquareMatrix()
 {
 
@@ -133,7 +139,7 @@ SquareMatrix RayTracer::Math::operator*(const SquareMatrix& lhs, const SquareMat
 		return result;
 	}
 
-	throw std::exception("Square matrices need to have same amount of rows/columns!");
+	throw std::exception("Error: Square matrices need to have same amount of rows/columns!");
 }
 
 const std::vector<float>& RayTracer::Math::SquareMatrix::operator[](int index) const
@@ -145,13 +151,7 @@ SquareMatrix& RayTracer::Math::SquareMatrix::operator=(const SquareMatrix& rhs)
 {
 	if (m_dimension == rhs.m_dimension)
 	{
-		for (unsigned int i = 0; i < m_dimension; ++i)
-		{
-			for (unsigned int j = 0; j < m_dimension; ++j)
-			{
-				m_data[i][j] = rhs.m_data[i][j];
-			}
-		}
+		CopyValues(rhs);
 	}
 
 	return *this;
@@ -187,6 +187,17 @@ void RayTracer::Math::SquareMatrix::MakeIdentity()
 		for (unsigned int j = 0; j < m_dimension; ++j)
 		{
 			m_data[i][j] = i == j ? 1.f : 0.f;
+		}
+	}
+}
+
+void RayTracer::Math::SquareMatrix::CopyValues(const SquareMatrix& sqrMtx)
+{
+	for (unsigned int i = 0; i < m_dimension; ++i)
+	{
+		for (unsigned int j = 0; j < m_dimension; ++j)
+		{
+			m_data[i][j] = sqrMtx.m_data[i][j];
 		}
 	}
 }

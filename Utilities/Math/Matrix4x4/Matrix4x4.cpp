@@ -10,6 +10,12 @@ RayTracer::Math::Matrix4x4::Matrix4x4()
 
 }
 
+RayTracer::Math::Matrix4x4::Matrix4x4(const SquareMatrix& sqrMtx)
+	: SquareMatrix(4)
+{
+	CopyValues(sqrMtx);
+}
+
 RayTracer::Math::Matrix4x4::~Matrix4x4()
 {
 
@@ -119,13 +125,7 @@ Matrix4x4& RayTracer::Math::Matrix4x4::operator=(const SquareMatrix& rhs)
 {
 	if (rhs.GetMatrixDimension() == m_dimension)
 	{
-		for (unsigned int i = 0; i < m_dimension; ++i)
-		{
-			for (unsigned int j = 0; j < m_dimension; ++j)
-			{
-				m_data[i][j] = rhs[i][j];
-			}
-		}
+		CopyValues(rhs);
 	}
 
 	throw std::exception("ERROR: must match the same dimension of 4x4");
@@ -133,15 +133,17 @@ Matrix4x4& RayTracer::Math::Matrix4x4::operator=(const SquareMatrix& rhs)
 
 Matrix4x4& RayTracer::Math::Matrix4x4::operator=(const Matrix4x4& rhs)
 {
-	for (unsigned int i = 0; i < m_dimension; ++i)
-	{
-		for (unsigned int j = 0; j < m_dimension; ++j)
-		{
-			m_data[i][j] = rhs.m_data[i][j];
-		}
-	}
+	CopyValues(rhs);
 
 	return *this;
+}
+
+ Matrix4x4 RayTracer::Math::operator*(const Matrix4x4& lhs, const Matrix4x4& rhs)
+{
+	const SquareMatrix* const ptrLhs = &lhs;
+	const SquareMatrix* const ptrRhs = &rhs;
+
+	return Matrix4x4((*ptrLhs) * (*ptrRhs));
 }
 
 Vector4 RayTracer::Math::operator*(const Matrix4x4& lhs, const Vector4& rhs)

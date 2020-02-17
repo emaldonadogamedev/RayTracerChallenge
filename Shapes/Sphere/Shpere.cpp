@@ -34,9 +34,10 @@ bool RayTracer::Shapes::Shpere::Intersects(const Ray& ray, IntersectionData& int
 	}
 
 	const float descriminantSqrt = std::sqrtf(discriminant);
+	const float TwoA = 2.0f * a;
 
-	const float t1 = (-b - descriminantSqrt) / (2.0f * a);
-	const float t2 = (-b + descriminantSqrt) / (2.0f * a);
+	const float t1 = (-b - descriminantSqrt) / TwoA;
+	const float t2 = (-b + descriminantSqrt) / TwoA;
 
 	if (t1 <= 0.f && t2 <= 0.f)
 	{

@@ -12,6 +12,7 @@ namespace RayTracer
 		{
 		public:
 			SquareMatrix(const unsigned int dimension);
+			SquareMatrix(const SquareMatrix& sqrMtx);
 			~SquareMatrix();
 
 			float Determinant() const;
@@ -37,6 +38,7 @@ namespace RayTracer
 			float Minor(int row, int col) const;
 			float CoFactor(int row, int col) const;
 			void MakeIdentity();
+			void CopyValues(const SquareMatrix& sqrMtx);
 
 			const unsigned int m_dimension;
 			std::vector<std::vector<float>> m_data;
