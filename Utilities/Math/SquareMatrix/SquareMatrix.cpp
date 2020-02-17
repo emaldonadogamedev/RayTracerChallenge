@@ -100,7 +100,7 @@ SquareMatrix RayTracer::Math::SquareMatrix::GetInverse() const
 	SquareMatrix result(m_dimension);
 
 	const float determinant = Determinant();
-	if (std::abs(determinant) > MY_EPSILON)
+	if (std::fabsf(determinant) > MY_EPSILON)
 	{
 		for (unsigned int row = 0; row < m_dimension; row++)
 		{
