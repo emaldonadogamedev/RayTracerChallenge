@@ -8,7 +8,7 @@ namespace RayTracer
 		class IntersectionData
 		{
 			public:
-				IntersectionData(const IShape* shapeIntersected, const float tClose = 0.f, const float tExtra = 0.f)
+				IntersectionData(const IShape* shapeIntersected = nullptr, const float tClose = 0.f, const float tExtra = 0.f)
 					:m_shapeIntersected(shapeIntersected)
 					,m_tValue(tClose)
 					, m_tExtra(tExtra)

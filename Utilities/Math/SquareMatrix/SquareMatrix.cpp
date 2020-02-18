@@ -4,7 +4,8 @@
 
 using namespace RayTracer::Math;
 
-RayTracer::Math::SquareMatrix::SquareMatrix(const unsigned int dimension) :m_dimension(dimension)
+RayTracer::Math::SquareMatrix::SquareMatrix(const unsigned int dimension) :
+	m_dimension(dimension)
 {
 	m_data.resize(m_dimension);
 	for (auto& row : m_data)
@@ -16,6 +17,12 @@ RayTracer::Math::SquareMatrix::SquareMatrix(const unsigned int dimension) :m_dim
 RayTracer::Math::SquareMatrix::SquareMatrix(const SquareMatrix& sqrMtx)
 	:m_dimension(sqrMtx.m_dimension)
 {
+	m_data.resize(m_dimension);
+	for (auto& row : m_data)
+	{
+		row.resize(m_dimension, 0.f);
+	}
+
 	CopyValues(sqrMtx);
 }
 

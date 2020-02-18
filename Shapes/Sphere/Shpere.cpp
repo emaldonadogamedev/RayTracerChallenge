@@ -9,7 +9,6 @@ using namespace RayTracer::Math;
 RayTracer::Shapes::Shpere::Shpere()
 	:IShape()
 {
-
 }
 
 RayTracer::Shapes::Shpere::~Shpere()
@@ -19,7 +18,7 @@ RayTracer::Shapes::Shpere::~Shpere()
 
 bool RayTracer::Shapes::Shpere::Intersects(const Ray& ray, IntersectionData& intersectionData) const
 {
-	const Vector3 sphereToRay = ray.m_origin - Vector3(0,0,0);
+	const Vector3 sphereToRay = ray.m_origin - m_position;
 
 	const float a = ray.m_direction.LengthSquared();
 	const float b = 2.0f * ray.m_direction.Dot(sphereToRay);
@@ -30,6 +29,7 @@ bool RayTracer::Shapes::Shpere::Intersects(const Ray& ray, IntersectionData& int
 	if (discriminant <= MY_EPSILON)
 	{
 		//no intersection
+		intersectionData.m_shapeIntersected = nullptr;
 		return false;
 	}
 
@@ -42,6 +42,7 @@ bool RayTracer::Shapes::Shpere::Intersects(const Ray& ray, IntersectionData& int
 	if (t1 <= 0.f && t2 <= 0.f)
 	{
 		//t values are neg, so no intersection, or intersection with object that's behind the cam.
+		intersectionData.m_shapeIntersected = nullptr;
 		return false;
 	}
 
@@ -64,4 +65,9 @@ bool RayTracer::Shapes::Shpere::Intersects(const Ray& ray, IntersectionData& int
 	}
 
 	return true;
+}
+
+Vector3 RayTracer::Shapes::Shpere::CalculateNormal(const Vector3& intersectionPoint) const
+{
+	return (intersectionPoint - m_position).Normalized();
 }

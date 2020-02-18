@@ -37,7 +37,7 @@ const size_t Canvas::GetHeight() const
 
 void Canvas::AddColorValue(unsigned int row, unsigned int col, const Color& color)
 {
-
+	m_colorData[row][col] = color;
 }
 
 void Canvas::Resize(unsigned int w, unsigned int h)

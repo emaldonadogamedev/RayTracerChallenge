@@ -13,6 +13,7 @@ namespace RayTracer
 				~Shpere();
 
 				virtual bool Intersects(const Math::Ray& ray, IntersectionData& intersectionData) const override;
+				Vector3 CalculateNormal(const Vector3& intersectionPoint) const override;
 		};
 	}	
 }

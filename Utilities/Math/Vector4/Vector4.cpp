@@ -45,10 +45,10 @@ Vector4 RayTracer::Math::Vector4::Normalized() const
 
 	if (l > MY_EPSILON)
 	{
-		result.x /= l;
-		result.y /= l;
-		result.z /= l;
-		result.w /= l;
+		result.x = x / l;
+		result.y = y / l;
+		result.z = z / l;
+		result.w = w / l;
 	}
 
 	return result;

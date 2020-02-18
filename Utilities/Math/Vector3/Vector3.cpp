@@ -47,14 +47,14 @@ float RayTracer::Math::Vector3::LengthSquared() const
 
 Vector3 RayTracer::Math::Vector3::Normalized() const
 {
-	Vector3 result = Vector3();
+	Vector3 result;
 	const float l = Length();
 
 	if (l > MY_EPSILON)
 	{
-		result.x /= l;
-		result.y /= l;
-		result.z /= l;
+		result.x = x / l;
+		result.y = y / l;
+		result.z = z / l;
 	}
 
 	return result;

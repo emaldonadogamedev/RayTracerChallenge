@@ -18,8 +18,8 @@ namespace RayTracer
 
 				friend Ray operator*(const Matrix4x4& lhs, const Ray& rhs);
 
-				const Vector3 m_origin;
-				const Vector3 m_direction;
+				Vector3 m_origin;
+				Vector3 m_direction;
 		};
 	}
 }

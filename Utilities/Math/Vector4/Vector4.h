@@ -58,8 +58,15 @@ namespace RayTracer
 
 			union
 			{
+				struct
+				{
+					float x;
+					float y;
+					float z;
+					float w;
+				};
+
 				float m_data[4];
-				float x, y, z, w;
 			};
 		};
 	}

@@ -40,8 +40,14 @@ namespace RayTracer
 
 			union
 			{
+				struct 
+				{
+					float x;
+					float y;
+					float z;
+				};
+
 				float m_data[3];
-				float x, y, z;
 			};
 
 			static const Vector3 X_POS;

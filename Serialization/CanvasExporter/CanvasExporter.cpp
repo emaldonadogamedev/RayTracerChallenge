@@ -15,7 +15,7 @@ void CanvasExporter::ExportToPPMimage(const Canvas& canvas, const std::string& f
 
 	if (ppmFile.is_open())
 	{
-		//File Header
+		//PPM File Header
 		ppmFile << "P3\n" << canvas.GetWidth() << ' ' << canvas.GetHeight() << '\n' << Color::s_MAX_COLOR_VALUE << '\n';
 
 		const auto& colorBuffer = canvas.GetColorBuffer();
