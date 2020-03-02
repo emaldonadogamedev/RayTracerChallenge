@@ -136,7 +136,7 @@ SquareMatrix RayTracer::Math::operator*(const SquareMatrix& lhs, const SquareMat
 
 				for (unsigned int iter = 0; iter < lhs.m_dimension; ++iter)
 				{
-					temp += (lhs[row][iter] + rhs[iter][col]);
+					temp += (lhs[row][iter] * rhs[iter][col]);
 				}
 
 				result.m_data[row][col] = temp;
@@ -159,9 +159,10 @@ SquareMatrix& RayTracer::Math::SquareMatrix::operator=(const SquareMatrix& rhs)
 	if (m_dimension == rhs.m_dimension)
 	{
 		CopyValues(rhs);
+		return *this;
 	}
 
-	return *this;
+	throw std::exception("Error: Square matrices need to have same amount of rows/columns!");
 }
 
 SquareMatrix RayTracer::Math::SquareMatrix::GetIdentity(const unsigned int dimension)
