@@ -37,18 +37,18 @@ int main(int argc, char** argv)
 	//sqrMtx.SetElement(3, 0, 0.f); sqrMtx.SetElement(3, 1, 0.f); sqrMtx.SetElement(3, 2, 0.f); sqrMtx.SetElement(3, 3, -0.f);
 
 	//Test Matrix multiplication
-	sqrMtx.SetElement(0, 0, 1.f); sqrMtx.SetElement(0, 1, 2.f); sqrMtx.SetElement(0, 2, 3.f); sqrMtx.SetElement(0, 3, 4.f);
-	sqrMtx.SetElement(1, 0, 5.f); sqrMtx.SetElement(1, 1, 6.f); sqrMtx.SetElement(1, 2, 7.f); sqrMtx.SetElement(1, 3, 8.f);
-	sqrMtx.SetElement(2, 0, 9.f); sqrMtx.SetElement(2, 1, 8.f); sqrMtx.SetElement(2, 2, 7.f); sqrMtx.SetElement(2, 3, 6.f);
-	sqrMtx.SetElement(3, 0, 5.f); sqrMtx.SetElement(3, 1, 4.f); sqrMtx.SetElement(3, 2, 3.f); sqrMtx.SetElement(3, 3, 2.f);
-
-	sqrMtx2.SetElement(0, 0,-2.f); sqrMtx2.SetElement(0, 1, 1.f); sqrMtx2.SetElement(0, 2, 2.f); sqrMtx2.SetElement(0, 3, 3.f);
-	sqrMtx2.SetElement(1, 0, 3.f); sqrMtx2.SetElement(1, 1, 2.f); sqrMtx2.SetElement(1, 2, 1.f); sqrMtx2.SetElement(1, 3,-1.f);
-	sqrMtx2.SetElement(2, 0, 4.f); sqrMtx2.SetElement(2, 1, 3.f); sqrMtx2.SetElement(2, 2, 6.f); sqrMtx2.SetElement(2, 3, 5.f);
-	sqrMtx2.SetElement(3, 0, 1.f); sqrMtx2.SetElement(3, 1, 2.f); sqrMtx2.SetElement(3, 2, 7.f); sqrMtx2.SetElement(3, 3, 8.f);
-
-	auto res = sqrMtx * sqrMtx2;
-	auto res2 = sqrMtx2 * sqrMtx;
+	//sqrMtx.SetElement(0, 0, 1.f); sqrMtx.SetElement(0, 1, 2.f); sqrMtx.SetElement(0, 2, 3.f); sqrMtx.SetElement(0, 3, 4.f);
+	//sqrMtx.SetElement(1, 0, 5.f); sqrMtx.SetElement(1, 1, 6.f); sqrMtx.SetElement(1, 2, 7.f); sqrMtx.SetElement(1, 3, 8.f);
+	//sqrMtx.SetElement(2, 0, 9.f); sqrMtx.SetElement(2, 1, 8.f); sqrMtx.SetElement(2, 2, 7.f); sqrMtx.SetElement(2, 3, 6.f);
+	//sqrMtx.SetElement(3, 0, 5.f); sqrMtx.SetElement(3, 1, 4.f); sqrMtx.SetElement(3, 2, 3.f); sqrMtx.SetElement(3, 3, 2.f);
+	//
+	//sqrMtx2.SetElement(0, 0,-2.f); sqrMtx2.SetElement(0, 1, 1.f); sqrMtx2.SetElement(0, 2, 2.f); sqrMtx2.SetElement(0, 3, 3.f);
+	//sqrMtx2.SetElement(1, 0, 3.f); sqrMtx2.SetElement(1, 1, 2.f); sqrMtx2.SetElement(1, 2, 1.f); sqrMtx2.SetElement(1, 3,-1.f);
+	//sqrMtx2.SetElement(2, 0, 4.f); sqrMtx2.SetElement(2, 1, 3.f); sqrMtx2.SetElement(2, 2, 6.f); sqrMtx2.SetElement(2, 3, 5.f);
+	//sqrMtx2.SetElement(3, 0, 1.f); sqrMtx2.SetElement(3, 1, 2.f); sqrMtx2.SetElement(3, 2, 7.f); sqrMtx2.SetElement(3, 3, 8.f);
+	//
+	//auto res = sqrMtx * sqrMtx2;
+	//auto res2 = sqrMtx2 * sqrMtx;
 
 	Ray ray(Vector3(0,0,-5.f), Vector3(0,0,1));
 
@@ -65,7 +65,7 @@ int main(int argc, char** argv)
 
 	Canvas canvas(canvas_pixels_uint, canvas_pixels_uint);
 	Shpere sphere;
-	sphere.SetTransformData(Vector3(.23f,.10f,0), Vector3(0,0,0), Vector3(1, .5f, 1.f));
+	sphere.SetTransformData(Vector3(.23f,.10f,10), Vector3(0,0,0), Vector3(1, .1f, 1.f));
 	
 	PhongMaterial phongMaterial;
 	phongMaterial.color = Vector4(1.f, .2f, 1.f, 1.f);

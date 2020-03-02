@@ -38,16 +38,22 @@ void RayTracer::Shapes::IShape::SetTransformData(const Vector3& pos, const Vecto
 	UpdateTransformationMatrices();
 }
 
+Matrix4x4 RayTracer::Shapes::IShape::GetTransformationMtx() const
+{
+	return m_transformMtx;
+}
+
 void RayTracer::Shapes::IShape::UpdateTransformationMatrices()
 {
 	m_transformMtx = 
-		Matrix4x4::GetTranslationMatrix(m_position.x, m_position.y, m_position.z) * 
-		Matrix4x4::GetScaleMatrix(m_scale.x, m_scale.y, m_scale.z);
+		Matrix4x4::GetScaleMatrix(m_scale.x, m_scale.y, m_scale.z) *
 
 		//TODO: test with scale and Rot, then 
-		//* Matrix4x4::GetRotationMatrix_X(m_rotation.x)
-		//* Matrix4x4::GetRotationMatrix_Y(m_rotation.y)
-		//* Matrix4x4::GetRotationMatrix_Z(m_rotation.z);
+		//Matrix4x4::GetRotationMatrix_X(m_rotation.x) *
+		//Matrix4x4::GetRotationMatrix_Y(m_rotation.y) *
+		//Matrix4x4::GetRotationMatrix_Z(m_rotation.z) *
+
+		Matrix4x4::GetTranslationMatrix(m_position.x, m_position.y, m_position.z);
 
 	m_invTransformMtx = m_transformMtx.GetTranspose();
 }

@@ -36,7 +36,8 @@ namespace RayTracer
 				virtual const Vector3& GetScale() const;
 				virtual const Vector3& GetRotation() const;
 
-				virtual void SetTransformData(const Vector3& pos, const Vector3& rot, const Vector3& scale);
+				void SetTransformData(const Vector3& pos, const Vector3& rot, const Vector3& scale);
+				Matrix4x4 GetTransformationMtx() const;
 
 
 				//Material Data
