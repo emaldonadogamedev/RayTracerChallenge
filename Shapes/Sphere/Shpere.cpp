@@ -18,7 +18,9 @@ RayTracer::Shapes::Shpere::~Shpere()
 
 bool RayTracer::Shapes::Shpere::Intersects(const Ray& ray, IntersectionData& intersectionData) const
 {
-	const Vector3 sphereToRay = ray.m_origin - m_position;
+	//const Ray transformedRay = m_invTransformMtx * ray;
+
+	const Vector3 sphereToRay = ray.m_origin - m_position;// - Vector3(0,0,0);
 
 	const float a = ray.m_direction.LengthSquared();
 	const float b = 2.0f * ray.m_direction.Dot(sphereToRay);

@@ -51,7 +51,7 @@ int main(int argc, char** argv)
 
 	Canvas canvas(canvas_pixels_uint, canvas_pixels_uint);
 	Shpere sphere;
-	sphere.SetTransformData(Vector3(0,0,0), Vector3(0,0,0), Vector3(1, .5f, 1.f));
+	sphere.SetTransformData(Vector3(.23f,.10f,0), Vector3(0,0,0), Vector3(1, .5f, 1.f));
 	
 	PhongMaterial phongMaterial;
 	phongMaterial.color = Vector4(1.f, .2f, 1.f, 1.f);
