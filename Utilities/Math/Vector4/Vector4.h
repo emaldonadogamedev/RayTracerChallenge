@@ -15,8 +15,7 @@ namespace RayTracer
 				,g(_g)
 				,b(_b)
 				,a(_a)
-			{
-				
+			{	
 			}
 			
 			unsigned int r, g, b, a;

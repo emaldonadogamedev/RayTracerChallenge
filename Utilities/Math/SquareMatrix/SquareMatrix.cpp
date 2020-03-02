@@ -187,7 +187,7 @@ float RayTracer::Math::SquareMatrix::CoFactor(int row, int col) const
 	return Minor(row, col) * (((row + col) % 2) == 0 ? 1.f : -1.f);
 }
 
-void RayTracer::Math::SquareMatrix::MakeIdentity()
+void RayTracer::Math::SquareMatrix::SetToIdentity()
 {
 	for (unsigned int i = 0; i < m_dimension; ++i)
 	{

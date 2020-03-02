@@ -37,7 +37,7 @@ namespace RayTracer
 		protected:
 			float Minor(int row, int col) const;
 			float CoFactor(int row, int col) const;
-			void MakeIdentity();
+			void SetToIdentity();
 			void CopyValues(const SquareMatrix& sqrMtx);
 
 			const unsigned int m_dimension;

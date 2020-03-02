@@ -15,7 +15,9 @@ namespace RayTracer
 				~Matrix4x4();
 
 				void SetToTranslationMatrix(float xPos, float yPos, float zPos);
-				void SetToRotationMatrix(float xRot, float yRot, float zRot);
+				void SetToRotationMatrix_X(float xRot);
+				void SetToRotationMatrix_Y(float yRot);
+				void SetToRotationMatrix_Z(float zRot);
 				void SetToScaleMatrix(float xScal, float yScal, float zScal);
 
 				static Matrix4x4 GetTranslationMatrix(float xPos, float yPos, float zPos);

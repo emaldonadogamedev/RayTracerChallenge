@@ -69,5 +69,15 @@ bool RayTracer::Shapes::Shpere::Intersects(const Ray& ray, IntersectionData& int
 
 Vector3 RayTracer::Shapes::Shpere::CalculateNormal(const Vector3& intersectionPoint) const
 {
+	//Old way, assumming that the shape is always at the position in world space, no other transformations
 	return (intersectionPoint - m_position).Normalized();
+
+	//Vector4 objSpacePos = m_invTransformMtx * Vector4(intersectionPoint.x, intersectionPoint.y, intersectionPoint.z, 1.0f);
+	//
+	//Vector4 worldSpaceNormal = (m_transformMtx * objSpacePos);
+	//worldSpaceNormal.w = 0.f;
+	//
+	//worldSpaceNormal.Normalize();
+	//
+	//return Vector3(worldSpaceNormal.x, worldSpaceNormal.y, worldSpaceNormal.z);
 }

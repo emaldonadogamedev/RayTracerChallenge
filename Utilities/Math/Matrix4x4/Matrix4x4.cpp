@@ -7,7 +7,6 @@ using namespace RayTracer::Math;
 RayTracer::Math::Matrix4x4::Matrix4x4()
 	:SquareMatrix(4)
 {
-
 }
 
 RayTracer::Math::Matrix4x4::Matrix4x4(const SquareMatrix& sqrMtx)
@@ -18,7 +17,66 @@ RayTracer::Math::Matrix4x4::Matrix4x4(const SquareMatrix& sqrMtx)
 
 RayTracer::Math::Matrix4x4::~Matrix4x4()
 {
+}
 
+void RayTracer::Math::Matrix4x4::SetToTranslationMatrix(float xPos, float yPos, float zPos)
+{
+	SetToIdentity();
+
+	SetElement(0, 3, xPos);
+	SetElement(1, 3, yPos);
+	SetElement(2, 3, zPos);
+}
+
+void RayTracer::Math::Matrix4x4::SetToRotationMatrix_X(float xRot)
+{
+	const float cosAngle(std::cos(xRot));
+	const float sinAngle(std::sin(xRot));
+
+	SetToIdentity();
+
+	SetElement(1, 1, cosAngle);
+	SetElement(1, 2, -sinAngle);
+
+	SetElement(2, 1, sinAngle);
+	SetElement(2, 2, cosAngle);
+}
+
+void RayTracer::Math::Matrix4x4::SetToRotationMatrix_Y(float yRot)
+{
+	const float cosAngle(std::cos(yRot));
+	const float sinAngle(std::sin(yRot));
+
+	SetToIdentity();
+
+	SetElement(0, 0, cosAngle);
+	SetElement(0, 2, sinAngle);
+
+	SetElement(2, 0, -sinAngle);
+	SetElement(2, 2, cosAngle);
+}
+
+void RayTracer::Math::Matrix4x4::SetToRotationMatrix_Z(float zRot)
+{
+	const float cosAngle(std::cos(zRot));
+	const float sinAngle(std::sin(zRot));
+
+	SetToIdentity();
+
+	SetElement(0, 0, cosAngle);
+	SetElement(0, 1, -sinAngle);
+
+	SetElement(1, 0, sinAngle);
+	SetElement(1, 1, cosAngle);
+}
+
+void RayTracer::Math::Matrix4x4::SetToScaleMatrix(float xScal, float yScal, float zScal)
+{
+	SetToIdentity();
+
+	SetElement(0, 0, xScal);
+	SetElement(1, 1, yScal);
+	SetElement(2, 2, zScal);
 }
 
 RayTracer::Math::Matrix4x4 RayTracer::Math::Matrix4x4::GetTranslationMatrix(float xPos, float yPos, float zPos)
@@ -126,6 +184,7 @@ Matrix4x4& RayTracer::Math::Matrix4x4::operator=(const SquareMatrix& rhs)
 	if (rhs.GetMatrixDimension() == m_dimension)
 	{
 		CopyValues(rhs);
+		return *this;
 	}
 
 	throw std::exception("ERROR: must match the same dimension of 4x4");

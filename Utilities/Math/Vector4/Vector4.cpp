@@ -71,11 +71,13 @@ Vector4 RayTracer::Math::Vector4::AsPointXYZ() const
 
 Color RayTracer::Math::Vector4::AsColor() const
 {
+	const float f = (float)Color::s_MAX_COLOR_VALUE;
+
 	return Color(
-		std::clamp(Color::s_MAX_COLOR_VALUE * (unsigned int)x, 0U, 255U),
-		std::clamp(Color::s_MAX_COLOR_VALUE * (unsigned int)y, 0U, 255U),
-		std::clamp(Color::s_MAX_COLOR_VALUE * (unsigned int)z, 0U, 255U),
-		std::clamp(Color::s_MAX_COLOR_VALUE * (unsigned int)w, 0U, 255U)
+		std::clamp((unsigned int)(f * x), 0U, 255U),
+		std::clamp((unsigned int)(f * y), 0U, 255U),
+		std::clamp((unsigned int)(f * z), 0U, 255U),
+		std::clamp((unsigned int)(f * w), 0U, 255U)
 	);
 }
 
